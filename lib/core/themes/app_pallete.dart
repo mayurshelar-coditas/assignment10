@@ -6,12 +6,14 @@ class AppPallete {
   static Color whiteColor = Colors.white;
   static Color onboardingBackAndSkipButtonColor =
       Colors.white.withOpacity(0.44);
+  static Color titleAndSubtitleColor = Colors.white.withOpacity(0.87);
   static Color onboardingNextAndGetStartedButtonColor = const Color(0xFF8875FF);
-
+  static Color dotColor = const Color(0xFFAFAFAF);
   //index / Main Screen
   static Color homeScreenTextColor = Colors.white.withOpacity(0.87);
   static Color floatingButtonColor = const Color(0xFF8687E7);
   static Color primaryColorForButton = const Color(0xFF8687E7);
+  static Color bottomNavBarColor = const Color(0xFF363636);
 
   //Color categories
   static Color colorCategoryOne = const Color(0xFFC9CC41);
