@@ -6,7 +6,12 @@ part 'home_route.g.dart';
 
 const homeRoute = '/home';
 
-@TypedGoRoute<HomeRoute>(path: homeRoute)
+@TypedGoRoute<HomeRoute>(
+  path: homeRoute,
+  routes: [
+    
+  ],
+)
 class HomeRoute extends GoRouteData {
   const HomeRoute();
 

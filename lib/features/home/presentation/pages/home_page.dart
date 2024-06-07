@@ -3,9 +3,26 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:up_todo/core/themes/app_pallete.dart';
 import 'package:up_todo/core/themes/fonts.dart';
 import 'package:up_todo/features/home/presentation/widgets/custom_bottom_nav_bar.dart';
+import 'package:up_todo/features/home/presentation/widgets/custom_modal_sheets.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  TextEditingController titleTextEditController = TextEditingController();
+  TextEditingController descriptionTextEditController = TextEditingController();
+   static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    titleTextEditController.dispose();
+    descriptionTextEditController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +53,21 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppPallete.primaryScaffoldBackgroundColor,
       bottomNavigationBar: const CustomBottomNavBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppPallete.floatingButtonColor,
-        shape: const CircleBorder(),
-        
-        child: SvgPicture.asset("assets/icons/add.svg"),
+      floatingActionButton: SizedBox(
+        height: 64,
+        width: 64,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () => CustomWidgets.addNewTask(context, titleTextEditController, descriptionTextEditController, formKey,),
+            backgroundColor: AppPallete.floatingButtonColor,
+            shape: const CircleBorder(),
+            child: SvgPicture.asset("assets/icons/add.svg"),
+          ),
+        ),
       ),
     );
   }

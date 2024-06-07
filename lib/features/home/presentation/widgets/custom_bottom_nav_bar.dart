@@ -8,9 +8,6 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        vertical: 12,
-      ),
       color: AppPallete.bottomNavBarColor,
       child: const Row(
         children: [

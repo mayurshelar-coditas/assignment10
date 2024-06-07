@@ -14,6 +14,9 @@ class AppPallete {
   static Color floatingButtonColor = const Color(0xFF8687E7);
   static Color primaryColorForButton = const Color(0xFF8687E7);
   static Color bottomNavBarColor = const Color(0xFF363636);
+  static Color borderColor = const Color(0xFF979797);
+  static Color calendarDateContainerColor = const Color(0xFF272727);
+  static Color weekendColor = const Color(0xFFFF4949);
 
   //Color categories
   static Color colorCategoryOne = const Color(0xFFC9CC41);

@@ -56,7 +56,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: Stack(
         children: [
           Positioned(
-            top: 0 + MediaQuery.of(context).padding.top,
+            top: MediaQuery.of(context).padding.top,
             left: 24,
             child: TextButton(
               onPressed: _onSkip,
@@ -85,8 +85,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: pages,
             ),
           ),
-
-          // Slidder code comes here
           Center(
             child: SmoothPageIndicator(
               controller: _controller,
