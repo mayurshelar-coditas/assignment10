@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:up_todo/core/constants.dart/constant_keys.dart';
-import 'package:up_todo/core/routes/home_routes/home_route.dart';
 import 'package:up_todo/core/themes/app_pallete.dart';
 import 'package:up_todo/core/themes/fonts.dart';
 import 'package:up_todo/features/onboarding/presentation/bloc/bloc/onboarding_bloc.dart';
@@ -70,7 +70,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
           ),
-
           Padding(
             padding: EdgeInsets.symmetric(
               vertical: MediaQuery.of(context).padding.top + 40,
@@ -128,7 +127,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               listener: (BuildContext context, OnboardingState state) {
                 switch (state as ActionState) {
                   case NavigateToHomeScreen():
-                    const HomeRoute().replace(context);
+                    context.replace('/homePage');
                 }
               },
             ),
@@ -147,7 +146,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Future<void> _onGetStarted(BuildContext context) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setBool(ConstantKeys.LOGINKEY, true);
-    const HomeRoute().replace(context);
+    context.replace('/home');
   }
 
   void _onBack() => _controller.previousPage(
